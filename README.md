@@ -1,5 +1,7 @@
 # Cosmos DB Dummy Data Generator
 
+Simple app to generate fake data and load to Azure Cosmos DB SQL API using the client library for Python.
+
 ## Setting Up
 Set the `COSMOS_URI` and `COSMOS_KEY` environment variables:
 
