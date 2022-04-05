@@ -22,7 +22,7 @@ def load_data(count):
         container.create_item(sample)
         COUNTER += 1
 
-    print ("Batch end.")
+    print ("\nBatch end.")
 
 print("Staring...")
 while True:
