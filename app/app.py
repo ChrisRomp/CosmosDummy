@@ -1,13 +1,16 @@
 '''Sample data loader for Cosmos DB'''
+import os
 from getsample import generate_sample
 from client import get_container
 from counter import Counter
+from dotenv import load_dotenv
+load_dotenv()
 
 # RUN PARAMS
-DATABASE_NAME = "db1"
-CONTAINER_NAME = "orders1"
-THROUGHPUT=400
-BATCH_SIZE = 2000
+DATABASE_NAME = os.environ["COSMOS_DB_NAME"]
+CONTAINER_NAME = os.environ["COSMOS_CONTAINER_NAME"]
+THROUGHPUT = int(os.getenv("COSMOS_THROUGHPUT", default="400"))
+BATCH_SIZE = int(os.getenv("COSMOS_BATCH_SIZE", default="2000"))
 
 def load_data(count):
     '''Load "X" samples into CosmosDB'''

@@ -1,6 +1,8 @@
 '''Generate Cosmos DB client'''
 import os
 from azure.cosmos import CosmosClient, PartitionKey
+from dotenv import load_dotenv
+load_dotenv()
 
 URL = os.environ['COSMOS_URI']
 KEY = os.environ['COSMOS_KEY']
