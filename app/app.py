@@ -14,10 +14,10 @@ def load_data(count):
     '''Load "X" samples into CosmosDB'''
     samples = generate_sample(count)
     container = get_container(DATABASE_NAME, CONTAINER_NAME, THROUGHPUT)
+    global COUNTER
 
     print ("Starting batch...")
     for sample in samples:
-        global COUNTER
         print(f"Loading record {format(COUNTER)}...", end="\r")
         container.create_item(sample)
         COUNTER += 1
