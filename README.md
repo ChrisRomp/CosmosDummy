@@ -1,22 +1,25 @@
 # Cosmos DB Dummy Data Generator
 
-Simple app to generate fake data and load to Azure Cosmos DB SQL API using the client library for Python.
+Simple app to generate fake data and load to Azure Cosmos DB using the client library for Python.
 
 ## Setting Up
 
-Set the `COSMOS_URI` and `COSMOS_KEY` environment variables:
+Copy the `.env.sample` file to `.env` and set the parameters in `.env`.
 
 ```bash
-export COSMOS_URI="https://[youraccount].documents.azure.com:443/"
-export COSMOS_KEY="YourAccountKey"
+cp .env.sample .env
 ```
 
-Set the `RUN PARAMS` values in `app/app.py`:
+### Parameters
 
-* `DATABASE_NAME` - The Cosmos DB database name
-* `CONTAINER_NAME` - The Cosmos DB container name
-* `THROUGHPUT` - The offered performance level in RU/s
-* `BATCH_SIZE` - The size of each batch before refreshing the context and sample data
+| Parameter | Required | Default | Note |
+| --------- | -------- | ------- | ---- |
+| `COSMOS_URI` | Yes | None | The URI for your Cosmos DB instance |
+| `COSMOS_KEY` | Yes | None | A valid read-write key for your Cosmos DB instance |
+| `COSMOS_DB_NAME` | Yes | None | The Cosmos DB database name|
+| `COSMOS_CONTAINER_NAME` | Yes | None | The Cosmos DB container name|
+| `COSMOS_THROUGHPUT` | No | 400 | The offered performance level in RU/s|
+| `COSMOS_BATCH_SIZE` | No | 2000 | The size of each batch before refreshing the |
 
 ## Running the App
 
@@ -41,5 +44,7 @@ The format of the generated random data (using [Faker](https://github.com/joke2k
     "orderAmount": float(2)
 }
 ```
+
+The sample data format can be modified in `app/getsample.py`.
 
 The app will use `/country` as the partition key by default. This can be modified in `app/client.py`.
