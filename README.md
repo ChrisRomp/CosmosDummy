@@ -3,6 +3,7 @@
 Simple app to generate fake data and load to Azure Cosmos DB SQL API using the client library for Python.
 
 ## Setting Up
+
 Set the `COSMOS_URI` and `COSMOS_KEY` environment variables:
 
 ```bash
@@ -25,7 +26,7 @@ python app/app.py
 
 End the loading process with Ctrl+C.
 
-### Data Sample
+## Data Sample
 
 The format of the generated random data (using [Faker](https://github.com/joke2k/faker)):
 
