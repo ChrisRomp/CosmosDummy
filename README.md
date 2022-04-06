@@ -24,3 +24,21 @@ python app/app.py
 ```
 
 End the loading process with Ctrl+C.
+
+### Data Sample
+
+The format of the generated random data (using [Faker](https://github.com/joke2k/faker)):
+
+```json
+{
+    "id": "uuid",
+    "timestamp": "ISO-8061 current time",
+    "name": "string",
+    "company": "string",
+    "country": "string",
+    "orderNumber": int,
+    "orderAmount": float(2)
+}
+```
+
+The app will use `/country` as the partition key by default. This can be modified in `app/client.py`.
