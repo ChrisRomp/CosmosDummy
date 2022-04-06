@@ -1,0 +1,39 @@
+apiVersion: apps/v1
+kind: ReplicaSet
+metadata:
+  name: cosmosdummy
+  labels:
+    app: cosmosdummy
+spec:
+  # Adjust to match load
+  replicas: 3
+  selector:
+    matchLabels:
+      app: cosmosdummy
+  template:
+    metadata:
+      labels:
+        app: cosmosdummy
+    spec:
+      containers:
+      - name: cosmosdummy-app
+        image: ghcr.io/chrisromp/cosmosdummy:latest
+        env:
+          - name: COSMOS_URI
+            valueFrom:
+              secretKeyRef:
+                name: db-creds
+                key: uri
+          - name: COSMOS_KEY
+            valueFrom:
+              secretKeyRef:
+                name: db-creds
+                key: key
+          - name: COSMOS_DB_NAME
+            value: db1
+          - name: COSMOS_CONTAINER_NAME
+            value: orders1
+          - name: COSMOS_THROUGHPUT
+            value: "400"
+          - name: COSMOS_BATCH_SIZE
+            value: "2000"
