@@ -1,6 +1,7 @@
 '''Sample Data Helper'''
 import datetime
 import uuid
+import os
 from faker import Faker
 
 fake = Faker()
@@ -8,6 +9,9 @@ fake = Faker()
 def generate_sample(count):
     '''Get next "X" samples'''
     print(f"Generating {count} samples...")
+
+    # Sample country, if provided
+    country = os.getenv("SAMPLE_COUNTRY", default="RANDOM")
 
     data = []
     for _ in range(count):
