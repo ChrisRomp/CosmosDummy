@@ -34,7 +34,7 @@ End the loading process with Ctrl+C.
 
 ## Scaling Out
 
-Azure Kubernetes Service (AKS) or any k8s implementation can be used to scale out this app and generate additional load. See the [kubernetes](kubernetes/README.md) folder for details.
+Azure Kubernetes Service (AKS) or any k8s implementation can be used to scale out this app and generate additional load. See the [kubernetes](kubernetes) folder for details.
 
 ## Data Sample
 
