@@ -3,8 +3,9 @@
 Examples for k8s files for scaled load testing.
 
 Components:
+
 * Secret: DB URI and key
-* Replica Set: Multiple container instances for generating load
+* Deployment: Multiple container instances for generating load
 
 Image source: `ghcr.io/chrisromp/cosmosdummy:latest`
 
