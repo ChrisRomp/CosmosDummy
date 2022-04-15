@@ -20,7 +20,7 @@ def generate_sample(count):
             "timestamp": datetime.datetime.now().isoformat(),
             "name": fake.name(),
             "company": fake.company(),
-            "country": fake.country(),
+            "country": fake.country() if country == "RANDOM" else country,
             "orderNumber": fake.pyint(),
             "orderAmount": fake.pyfloat(left_digits=2, right_digits=2, positive=True)
         })
