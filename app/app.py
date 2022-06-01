@@ -22,6 +22,8 @@ def load_data(count):
         counter = Counter.increment()
         print(f"Loading record {counter}...", end="\r")
         container.create_item(sample)
+        container.query_items(query='select * from c where c.country ="Afghanistan" ',enable_cross_partition_query=True)
+
 
     print ("\nBatch end.")
 
